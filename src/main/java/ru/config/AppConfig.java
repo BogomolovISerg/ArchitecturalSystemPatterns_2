@@ -22,12 +22,13 @@ public class AppConfig implements WebMvcConfigurer {
 
     @Bean
     public SpringResourceTemplateResolver templateResolver() {
+        final long cacheLifetime = 3600000L;
         SpringResourceTemplateResolver templateResolver = new SpringResourceTemplateResolver();
         templateResolver.setCharacterEncoding("UTF-8");
         templateResolver.setTemplateMode(TemplateMode.HTML);
         templateResolver.setPrefix("/WEB-INF/templates/");
         templateResolver.setSuffix(".html");
-        templateResolver.setCacheTTLMs(3600000L);
+        templateResolver.setCacheTTLMs(cacheLifetime);
         templateResolver.setCacheable(false);
         return templateResolver;
     }
